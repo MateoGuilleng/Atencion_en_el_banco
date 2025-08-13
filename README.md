@@ -148,14 +148,6 @@ customers.sort((c1, c2) -> {
 });
 ```
 
-## Ventajas del Nuevo Sistema Simplificado
-
-1. **Simplicidad**: Código más directo y fácil de entender
-2. **Predecibilidad**: Todos los clientes se procesan en el mismo tiempo
-3. **Eficiencia**: Procesamiento por lotes maximiza el uso de recursos
-4. **Claridad**: El flujo de prioridades es más evidente
-5. **Mantenibilidad**: Menos complejidad en la gestión de hilos
-
 ## Flujo Completo de la Simulación
 
 1. **Inicialización**: Se crean las colas y puntos de servicio
@@ -168,18 +160,3 @@ customers.sort((c1, c2) -> {
    - Marcar como servidos
 5. **Finalización**: Todos los clientes son atendidos y se muestran estadísticas
 
-## Diferencias con el Sistema Anterior
-
-**Sistema Anterior (Complejo):**
-- Múltiples hilos concurrentes
-- Tiempos de servicio individuales por cliente
-- Gestión compleja de sincronización
-- Posibles condiciones de carrera
-
-**Sistema Actual (Simplificado):**
-- Procesamiento secuencial por lotes
-- Tiempo fijo de 1 segundo para todos
-- Sincronización simple con locks
-- Flujo predecible y claro
-
-Este nuevo diseño mantiene la funcionalidad esencial del sistema de prioridades mientras simplifica significativamente la implementación, haciendo el código más comprensible y mantenible.
