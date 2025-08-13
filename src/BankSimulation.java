@@ -44,7 +44,7 @@ public class BankSimulation {
     
     public void startSimulation() {
         simulationRunning = true;
-        System.out.println(" INICIANDO SIMULACIÓN DE ATENCIÓN BANCARIA \n");
+        System.out.println("=== INICIANDO SIMULACIÓN DE ATENCIÓN BANCARIA ===\n");
         
         showCurrentState();
         
@@ -52,14 +52,13 @@ public class BankSimulation {
         
         showCurrentState();
         
-        System.out.println(" SIMULACIÓN COMPLETADA ");
+        System.out.println("=== SIMULACIÓN COMPLETADA ===");
         simulationRunning = false;
     }
     
     private void processAllCustomers() {
         while (hasCustomersWaiting()) {
             processNextBatch();
-            showCurrentState();
         }
     }
     
@@ -85,6 +84,8 @@ public class BankSimulation {
             }
         }
         
+        showCurrentState();
+        
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -96,6 +97,8 @@ public class BankSimulation {
                 servicePoint.completeService();
             }
         }
+        
+        showCurrentState();
     }
     
     private List<Customer> getNextBatch(String serviceType, int batchSize) {
@@ -146,14 +149,13 @@ public class BankSimulation {
     }
     
     public void showStatistics() {
-        System.out.println("ESTADÍSTICAS ");
+        System.out.println("=== ESTADÍSTICAS ===");
         System.out.println("Total de clientes: " + allCustomers.size());
         
         long cajaCustomers = allCustomers.stream()
             .filter(c -> c.getServiceType().equals("caja"))
             .count();
         long plataformaCustomers = allCustomers.stream()
-            .filter(c -> c.getServiceType().equals("plataforma"))
             .count();
         
         System.out.println("Clientes de caja: " + cajaCustomers);

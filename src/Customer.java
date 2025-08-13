@@ -37,7 +37,7 @@ public class Customer {
     
     @Override
     public String toString() {
-        if (status.equals("en atención")) {
+        if (status.equals("en atención") && !assignedService.isEmpty()) {
             return id + ", en atención " + assignedService;
         } else {
             return id + ", " + status;
